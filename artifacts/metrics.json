@@ -1,0 +1,114 @@
+{
+  "track": "nlp",
+  "model": "cointegrated/rubert-tiny2",
+  "revision": "e8ed3b0c8bbf4fb6984c3de043bf7d2f4e5969ae",
+  "dataset": "RCC-MSU/collection3",
+  "classes": [
+    "LOC",
+    "ORG",
+    "PER"
+  ],
+  "n_train": 9301,
+  "n_val": 2153,
+  "n_test": 1922,
+  "params_total": 29098303,
+  "baseline": {
+    "majority": {
+      "f1_micro": 0.561480399318237,
+      "f1_macro": 0.5786909792940792,
+      "precision": 0.5628508664876739,
+      "recall": 0.5601165897498178
+    },
+    "random_head": {
+      "f1_micro": 0.0380824055031558,
+      "f1_macro": 0.035254710988307,
+      "precision": 0.022296034876479135,
+      "recall": 0.13043478260869565
+    }
+  },
+  "final": {
+    "f1_micro": 0.9302899444787168,
+    "f1_macro": 0.9280772653455714,
+    "precision": 0.9186159844054581,
+    "recall": 0.9422644338915271,
+    "token_f1": 0.9558249434970207,
+    "per_type": {
+      "LOC": {
+        "precision": 0.9523404255319149,
+        "recall": 0.9523404255319149,
+        "f1": 0.9523404255319149,
+        "support": 1175
+      },
+      "ORG": {
+        "precision": 0.8463878326996198,
+        "recall": 0.8861464968152867,
+        "f1": 0.8658109684947491,
+        "support": 1256
+      },
+      "PER": {
+        "precision": 0.952912019826518,
+        "recall": 0.9796178343949045,
+        "f1": 0.9660804020100503,
+        "support": 1570
+      }
+    },
+    "validation": {
+      "f1_micro": 0.9316740457101831,
+      "f1_macro": 0.9296037154523557,
+      "precision": 0.9181603773584905,
+      "recall": 0.9455914500850133,
+      "token_f1": 0.9539239814055236
+    }
+  },
+  "ablation": {
+    "setting": "freeze",
+    "split": "validation",
+    "epochs": 3,
+    "full": {
+      "f1_micro": 0.9316740457101831,
+      "f1_macro": 0.9296037154523557,
+      "precision": 0.9181603773584905,
+      "recall": 0.9455914500850133,
+      "token_f1": 0.9539239814055236,
+      "train_sec": 40.565674699959345,
+      "lr": 0.0005,
+      "trainable_params": 29098303,
+      "peak_mem_mb": 705.83203125,
+      "final_eval_loss": 0.042982425540685654
+    },
+    "freeze": {
+      "f1_micro": 0.681682371868536,
+      "f1_macro": 0.6750936449111303,
+      "precision": 0.6468920392584515,
+      "recall": 0.7204274957493321,
+      "token_f1": 0.7508203894115073,
+      "train_sec": 45.012962299981155,
+      "lr": 0.0005,
+      "trainable_params": 2191,
+      "peak_mem_mb": 574.02001953125,
+      "final_eval_loss": 0.17590957880020142
+    },
+    "freeze_hi_lr": {
+      "f1_micro": 0.775830678197542,
+      "f1_macro": 0.7752834531436519,
+      "precision": 0.72982230785699,
+      "recall": 0.8280301190187029,
+      "token_f1": 0.8458870855874601,
+      "train_sec": 35.367198900086805,
+      "lr": 0.01,
+      "trainable_params": 2191,
+      "peak_mem_mb": 426.09521484375,
+      "final_eval_loss": 0.1105058342218399
+    }
+  },
+  "errors": {
+    "correct": 3893,
+    "boundary": 164,
+    "type": 38,
+    "missed": 22,
+    "spurious": 120
+  },
+  "device": "NVIDIA GeForce RTX 3060 Laptop GPU",
+  "train_time_sec": 40.565674699959345,
+  "fast_mode": false
+}
